@@ -49,3 +49,19 @@ Usuário -> HTML -> main.js -> ui.js -> api.js -> servido/node -> banco de dados
 16. O navegador mostra tudo na tela.
 
 A interface (ui.js) precisa de dados → pede para a API (api.js) → a API usa fetch() para conversar com o servidor Node → como essa conversa demora, fetch() retorna uma Promise → await espera a resposta → response.json() converte os dados para objetos JavaScript → try/catch garante que, se algo der errado em qualquer etapa, o erro seja tratado sem quebrar toda a aplicação.
+
+CRUD - Etapa Create (POST): requisição a API, Método POST
+ 
+HTTP: um conjunto de verbos
+  > GET: select, exibe
+  > POST: create, cria
+
+No método POST:
+- headers: informa ao servidor o que está sendo enviado
+- body: conteúdo da requisição
+
+CONHECENDO O PROTOCOLO HTTP - REQUISIÇÃO HTTP
+
+HTTP: HYPERTEXT TRANSFER PROTOL: base da comunicação na web.
+Conjunto de regras e diretrizes que norteiam a comunicação na web
+Sua função é de tranferir os dados entre o cliente e o servidor
