@@ -1,0 +1,51 @@
+CRUD - Etapa Read (GET): consumindo API e renderizando dados
+
+1. Você abre index.html no navegador.
+2. O evento DOMContentLoaded dispara quando o HTML termina de ser montado (main.js está esperando esse momento). 
+3. main.js chama ui.renderizarPensamentos().
+4. ui.js chama await api.buscarPensamentos() e espera.
+5. api.js faz fetch("http://localhost:5500/pensamentos") → isso sai do seu computador, bate no json-server que está rodando (se estiver), pega os dados do db.json, e volta como resposta HTTP.
+6. api.js converte a resposta em JSON com response.json() e devolve pra quem chamou (ui.js).
+7. ui.js recebe o array de pensamentos e, pra cada um, injeta um <li> dentro do <ul id="lista-pensamentos"> do HTML.
+8. Se qualquer passo do 4 ao 7 falhar, o catch correspondente entra em ação.
+
+ARQUITETURA DO PROJETO ATÉ AQUI
+Usuário -> HTML -> main.js -> ui.js -> api.js -> servido/node -> banco de dados/json
+
+- main.js: ele só inicia tudo. Pós carregamento da página(HTML), pode começar, execute renderizarPensamento()
+- ui.js: responsável pela interface. Ele precisa mostrar mas não sabe onde os dados estão, então ele "pede ajuda" (const pensamentos = await api.buscarPensamentos();). Depois que ele recebe a resposnta ele monta a tela. Pra cada pensamento ele cria um item da lista/array
+- api.js: comunicação com o servidor, usando o fetch
+
+1. O usuário abre a página.
+↓
+2. O HTML é carregado.
+↓
+3. main.js é iniciado.
+↓
+4. main.js chama ui.renderizarPensamentos()
+↓
+5. ui.js precisa dos pensamentos.
+↓
+6. ui.js pede para api.js buscá-los.
+↓
+7. api.js faz um fetch()
+↓
+8. O servidor Node recebe a requisição.
+↓
+9. Node consulta os dados.
+↓
+10. Node devolve JSON.
+↓
+11. fetch recebe a resposta.
+↓
+12. response.json() transforma JSON em objeto JavaScript.
+↓
+13. api.js devolve os dados.
+↓
+14. ui.js percorre cada pensamento.
+↓
+15. ui.js cria um <li> para cada pensamento.
+↓
+16. O navegador mostra tudo na tela.
+
+A interface (ui.js) precisa de dados → pede para a API (api.js) → a API usa fetch() para conversar com o servidor Node → como essa conversa demora, fetch() retorna uma Promise → await espera a resposta → response.json() converte os dados para objetos JavaScript → try/catch garante que, se algo der errado em qualquer etapa, o erro seja tratado sem quebrar toda a aplicação.
