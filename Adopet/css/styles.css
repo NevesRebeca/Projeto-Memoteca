@@ -102,7 +102,7 @@ h3 {
   line-height: normal;
 }
 
-#form-container {
+/*#lista-pets-container {
   display: flex;
   padding: 48px 40px;
   flex-direction: column;
@@ -116,16 +116,17 @@ h3 {
   width: 100%;
   max-width: 712px;
   margin-top: 40px;
-}
+}*/
 
-#pensamento-form {
+#pets-form {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-#pensamento-conteudo,
-#pensamento-autoria {
+#pet-nome,
+#pet-raca,
+#pet-especie {
   padding: 16px;
   border-radius: 8px;
   background: var(--Cinza-claro, #edf0f4);
@@ -133,15 +134,7 @@ h3 {
   overflow-wrap: break-word;
 }
 
-#pensamento-conteudo {
-  min-height: 80px;
-}
-
-#pensamento-especie {
-  min-height: 80px;
-}
-
-#pensamento-form label {
+#pets-form label {
   margin-bottom: 16px;
   color: var(--Azul-Dark, #041832);
   font-family: "Poppins", sans-serif;
@@ -151,8 +144,9 @@ h3 {
   line-height: normal;
 }
 
-#pensamento-conteudo::placeholder,
-#pensamento-autoria::placeholder {
+#pet-nome::placeholder,
+#pet-raca::placeholder,
+#pet-especie::placeholder {
   color: var(--Cinza-medio, #8f8f8f);
   font-family: "Poppins", sans-serif;
   font-size: 16px;
@@ -161,8 +155,8 @@ h3 {
   line-height: normal;
 }
 
-#pensamento-form textarea,
-#pensamento-form input {
+#pets-form textarea,
+#pets-form input {
   margin-bottom: 24px;
   outline: none;
   border-style: none;
@@ -216,7 +210,7 @@ h3 {
   gap: 24px;
 }
 
-.li-pensamento {
+.li-pet {
   position: relative;
   padding: 24px;
   background: var(--Branco, #fff);
@@ -234,7 +228,7 @@ h3 {
   margin-bottom: 12px;
 }
 
-.pensamento-conteudo {
+.pensamento-nome {
   color: var(--Azul-Dark, #041832);
   font-family: "Roboto Mono";
   font-size: 22px;
@@ -242,7 +236,7 @@ h3 {
   line-height: normal;
 }
 
-.pensamento-autoria {
+.pensamento-raca {
   color: var(--Cinza-medio, #8f8f8f);
   font-family: "Roboto Mono";
   font-size: 15px;

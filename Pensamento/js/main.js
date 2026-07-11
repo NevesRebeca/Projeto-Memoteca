@@ -8,7 +8,10 @@ document.addEventListener("DOMContentLoaded", () => {
   ui.renderizarPensamentos();
 
   const formularioPensamento = document.getElementById("pensamento-form");
+  const botaoCancelar = document.getElementById("botao-cancelar");
+
   formularioPensamento.addEventListener("submit", manipularSubmissaFormulario);
+  botaoCancelar.addEventListener("click", manipularCancelamento);
 });
 
 async function manipularSubmissaFormulario(event) {
@@ -26,4 +29,8 @@ async function manipularSubmissaFormulario(event) {
   } catch {
     alert("Erro ao salvar pensamento");
   }
+}
+// ponte que coneca o clique à ação de limpar o formulário, chamando a função ui.limparFormulario(), que realmente limpa o formulário
+function manipularCancelamento() {
+  ui.limparFormulario();
 }

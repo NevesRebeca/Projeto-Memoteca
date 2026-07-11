@@ -1,13 +1,3 @@
-CRUD - Etapa Read (GET): consumindo API e renderizando dados
-
-1. Você abre index.html no navegador.
-2. O evento DOMContentLoaded dispara quando o HTML termina de ser montado (main.js está esperando esse momento). 
-3. main.js chama ui.renderizarPensamentos().
-4. ui.js chama await api.buscarPensamentos() e espera.
-5. api.js faz fetch("http://localhost:5500/pensamentos") → isso sai do seu computador, bate no json-server que está rodando (se estiver), pega os dados do db.json, e volta como resposta HTTP.
-6. api.js converte a resposta em JSON com response.json() e devolve pra quem chamou (ui.js).
-7. ui.js recebe o array de pensamentos e, pra cada um, injeta um <li> dentro do <ul id="lista-pensamentos"> do HTML.
-8. Se qualquer passo do 4 ao 7 falhar, o catch correspondente entra em ação.
 
 ARQUITETURA DO PROJETO ATÉ AQUI
 Usuário -> HTML -> main.js -> ui.js -> api.js -> servido/node -> banco de dados/json
@@ -50,6 +40,20 @@ Usuário -> HTML -> main.js -> ui.js -> api.js -> servido/node -> banco de dados
 
 A interface (ui.js) precisa de dados → pede para a API (api.js) → a API usa fetch() para conversar com o servidor Node → como essa conversa demora, fetch() retorna uma Promise → await espera a resposta → response.json() converte os dados para objetos JavaScript → try/catch garante que, se algo der errado em qualquer etapa, o erro seja tratado sem quebrar toda a aplicação.
 
+FLUXO GERAL: main.js decido quando algo deve acontecer -> chama ui.js, que decide como a tela muda -> que chama api.js, que decide como falar com o servidor. 
+Cada camada só conhece a de baixo, nunca pula etapas (facilitação de encontrar error)
+------------------------------------------------------------------------------------------------------------------------------
+CRUD - Etapa Read (GET): consumindo API e renderizando dados
+
+1. Você abre index.html no navegador.
+2. O evento DOMContentLoaded dispara quando o HTML termina de ser montado (main.js está esperando esse momento). 
+3. main.js chama ui.renderizarPensamentos().
+4. ui.js chama await api.buscarPensamentos() e espera.
+5. api.js faz fetch("http://localhost:5500/pensamentos") → isso sai do seu computador, bate no json-server que está rodando (se estiver), pega os dados do db.json, e volta como resposta HTTP.
+6. api.js converte a resposta em JSON com response.json() e devolve pra quem chamou (ui.js).
+7. ui.js recebe o array de pensamentos e, pra cada um, injeta um <li> dentro do <ul id="lista-pensamentos"> do HTML.
+8. Se qualquer passo do 4 ao 7 falhar, o catch correspondente entra em ação.
+------------------------------------------------------------------------------------------------------------------------------
 CRUD - Etapa Create (POST): requisição a API, Método POST
  
 HTTP: um conjunto de verbos
@@ -65,3 +69,5 @@ CONHECENDO O PROTOCOLO HTTP - REQUISIÇÃO HTTP
 HTTP: HYPERTEXT TRANSFER PROTOL: base da comunicação na web.
 Conjunto de regras e diretrizes que norteiam a comunicação na web
 Sua função é de tranferir os dados entre o cliente e o servidor
+-------------------------------------------------------------------------------------------------------------------------------> DOM: Document Objetcd Model (Modelo de Objeto do Documento)
+é a representação do HTML como uma estrutura de objetos que o JavaScript consegue ler e manipular. Quando o navegador carrega o index.html, ele não guarda aquilo como texto puro - ele monta uma árvore de elementos (tags), onde cada div, ul, li, form, vira um, objeto que pode ser acessado e alterado via código

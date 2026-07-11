@@ -59,6 +59,19 @@
       "especie": "canina",
       "nome": "Charlie",
       "raca": "Golden Retriever"
+    },
+    {
+      "nome": "Bella",
+      "raca": "Sem Raça Definida",
+      "especie": "Canina",
+      "id": "wBMIZVZhGB8"
+    },
+    {
+      "nome": "Crypto",
+      "raca": "O Super Cão",
+      "especie": "Canina",
+      "id": "TCJ_6id71PA"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

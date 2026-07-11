@@ -1,4 +1,7 @@
 // responsável por conter as requisições HTTP para a API
+// Só conversa com o servidor (fetch). Não sabe nada sobre a tela. E até o momento possui duas funções:
+// buscarPensamentos() -> GET
+// salvarPensamento() -> POST
 
 const api = {
   async buscarPensamentos() {

@@ -74,6 +74,11 @@
       "conteudo": "Puxa, puxa, que puxa          ",
       "autoria": "Júlio (Cocoricó)",
       "id": "b3LAZMe_6mI"
+    },
+    {
+      "conteudo": "Gugu!          ",
+      "autoria": "Rodrigo Faro",
+      "id": "3wOQUBZMydc"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -11,6 +11,22 @@ const api = {
       throw error;
     }
   },
+
+  async salvarPet(pet) {
+    try {
+      const response = await fetch("http://localhost:5501/pets", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(pet),
+      });
+      return await response.json();
+    } catch (error) {
+      alert("Erro ao cadastrar pet!");
+      throw error;
+    }
+  },
 };
 
 // para usar esse objeto em outros arquivos, é necessário exportá-lo

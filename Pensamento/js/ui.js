@@ -41,6 +41,11 @@ const ui = {
     li.appendChild(pensamentoAutoria);
     listaPensamentos.appendChild(li);
   },
+
+  limparFormulario() {
+    // .reset: método nativo de formulários HTML que limpa todos os campos preenchidos de volta ao estado inicial, se você precisar zerar campo por campo manualmente
+    document.getElementById("pensamento-form").reset();
+  },
 };
 
 export default ui;
