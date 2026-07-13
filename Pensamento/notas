@@ -41,7 +41,7 @@ Usuário -> HTML -> main.js -> ui.js -> api.js -> servido/node -> banco de dados
 A interface (ui.js) precisa de dados → pede para a API (api.js) → a API usa fetch() para conversar com o servidor Node → como essa conversa demora, fetch() retorna uma Promise → await espera a resposta → response.json() converte os dados para objetos JavaScript → try/catch garante que, se algo der errado em qualquer etapa, o erro seja tratado sem quebrar toda a aplicação.
 
 FLUXO GERAL: main.js decido quando algo deve acontecer -> chama ui.js, que decide como a tela muda -> que chama api.js, que decide como falar com o servidor. 
-Cada camada só conhece a de baixo, nunca pula etapas (facilitação de encontrar error)
+Cada camada só conhece a de baixo, nunca pula etapas (facilitação de encontrar erros)
 ------------------------------------------------------------------------------------------------------------------------------
 CRUD - Etapa Read (GET): consumindo API e renderizando dados
 

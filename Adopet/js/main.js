@@ -20,7 +20,11 @@ async function manipularSubmissaoFormulario(event) {
   const especie = document.getElementById("pet-especie").value;
 
   try {
-    await api.salvarPet({ nome, raca, especie });
+    if (id) {
+      await api.editarCadastroPet({ id, nome, raca, especie });
+    } else {
+      await api.salvarPet({ nome, raca, especie });
+    }
     ui.renderizarPets();
   } catch {
     alert("Erro ao salvar pet!");

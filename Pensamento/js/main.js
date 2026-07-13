@@ -1,6 +1,7 @@
-// responsável pela lógica principal do carregamento da aplicação
+// responsável pela lógica principal do carregamento da aplicação. Não manipula tela nem faz requisição diretamente. Só liga eventos (clique, submit, etc) às ações certas, chamando ui ou pi quando algo acontece.
 
 // DOMContentLoaded - evento que é disparado quando o HTML foi completamente carregado e analisado, sem aguardar o CSS, imagens e subframes terminarem de carregar
+
 import ui from "./ui.js";
 import api from "./api.js";
 
@@ -24,7 +25,11 @@ async function manipularSubmissaFormulario(event) {
   const autoria = document.getElementById("pensamento-autoria").value;
 
   try {
-    await api.salvarPensamento({ conteudo, autoria });
+    if (id) {
+      await api.editarPensamento({ id, conteudo, autoria });
+    } else {
+      await api.salvarPensamento({ conteudo, autoria });
+    }
     ui.renderizarPensamentos();
   } catch {
     alert("Erro ao salvar pensamento");

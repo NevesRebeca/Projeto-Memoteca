@@ -1,6 +1,18 @@
 import api from "./api.js";
 
 const ui = {
+  async preencherFormulario(petId) {
+    const pet = await api.buscarPetPorId(petId);
+    document.getElementById("pet-id").value = pet.id;
+    document.getElementById("pet-nome").value = pet.nome;
+    document.getElementById("pet-raca").value = pet.raca;
+    document.getElementById("pet-especie").value = pet.especie;
+  },
+
+  limparFormulario() {
+    document.getElementById("pets-form").reset();
+  },
+
   async renderizarPets() {
     const listaPets = document.getElementById("lista-pets");
 
@@ -37,16 +49,25 @@ const ui = {
     especiePet.textContent = pet.especie;
     especiePet.classList.add("pensamento-especie");
 
+    const botaoEditar = document.createElement("button");
+    botaoEditar.classList.add("botao-editar");
+    botaoEditar.onclick = () => ui.preencherFormulario(pet.id);
+
+    const iconeEditar = document.createElement("img");
+    iconeEditar.src = "assets/imagens/icone-editar.png";
+    iconeEditar.alt = "Editar";
+    botaoEditar.appendChild(iconeEditar);
+
+    const icones = document.createElement("div");
+    icones.classList.add("icones");
+    icones.appendChild(botaoEditar);
+
     li.appendChild(iconeAspas);
     li.appendChild(nomePet);
     li.appendChild(racaPet);
     li.appendChild(especiePet);
-
+    li.appendChild(icones);
     listaPets.appendChild(li);
-  },
-
-  limparFormulario() {
-    document.getElementById("pets-form").reset();
   },
 };
 

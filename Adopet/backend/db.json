@@ -67,10 +67,10 @@
       "id": "wBMIZVZhGB8"
     },
     {
-      "nome": "Crypto",
+      "id": "TCJ_6id71PA",
+      "nome": "Krypto",
       "raca": "O Super Cão",
-      "especie": "Canina",
-      "id": "TCJ_6id71PA"
+      "especie": "Canina"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
