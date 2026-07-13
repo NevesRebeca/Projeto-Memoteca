@@ -59,6 +59,7 @@ CRUD - Etapa Create (POST): requisição a API, Método POST
 HTTP: um conjunto de verbos
   > GET: select, exibe
   > POST: create, cria
+  > PUT: update, atualizar
 
 No método POST:
 - headers: informa ao servidor o que está sendo enviado

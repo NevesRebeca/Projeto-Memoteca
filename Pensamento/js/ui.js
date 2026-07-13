@@ -18,12 +18,20 @@ const ui = {
 
   async renderizarPensamentos() {
     const listaPensamentos = document.getElementById("lista-pensamentos");
+    const mensagemVazia = document.getElementById("mensagem-vazia");
+    listaPensamentos.innerHTML = "";
 
     try {
       // chamando a API
       const pensamentos = await api.buscarPensamentos();
       // chamando a função para criação de pensamentos
       pensamentos.forEach(ui.adicionarPensamento);
+      if (pensamentos.lenght === 0) {
+        mensagemVazia.style.display = "block";
+      } else {
+        mensagemVazia.style.display = "none";
+        pensamentos.forEach(ui.adicionarPensamento);
+      }
     } catch {
       alert("Erro ao renderizar pensamentos");
     }
@@ -60,9 +68,26 @@ const ui = {
     iconeEditar.alt = "Editar";
     botaoEditar.appendChild(iconeEditar); // adicionando o ícone de editar ao botão de editar
 
+    const botaoExcluir = document.createElement("button");
+    botaoExcluir.classList.add("botao-excluir");
+    botaoExcluir.onclick = async () => {
+      try {
+        await api.excluirPensamento(pensamento.id);
+        ui.renderizarPensamentos();
+      } catch (error) {
+        alert("Erro ao excluir pensamento");
+      }
+    };
+
+    const iconeExcluir = document.createElement("img");
+    iconeExcluir.src = "assets/imagens/icone-excluir.png";
+    iconeExcluir.alt = "Excluir";
+    botaoExcluir.appendChild(iconeExcluir); // adicionando o ícone de editar ao botão de excluir
+
     const icones = document.createElement("div");
     icones.classList.add("icones");
     icones.appendChild(botaoEditar); // adicionando o botão de editar ao div icones
+    icones.appendChild(botaoExcluir);
 
     // adicionando os elementos criados à lista
     li.appendChild(iconeAspas);
