@@ -1,4 +1,4 @@
-# 📚 JavaScript: Implementando CRUD com Requisições HTTP
+# JavaScript: Implementando CRUD com Requisições HTTP
 
 Este repositório reúne dois projetos desenvolvidos por mim durante a realização do curso **JavaScript: implementando CRUD com requisições HTTP**, da **Alura**.
 
