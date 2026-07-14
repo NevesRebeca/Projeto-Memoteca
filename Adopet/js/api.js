@@ -1,10 +1,12 @@
 // responsável por conter as requisições HTTP para a API
 
+const URL_BASE = "http://localhost:5501";
+
 const api = {
   async buscarPets() {
     // caso algum erro na requisição, o try catch vai capturar e exibir no console
     try {
-      const response = await fetch("http://localhost:5501/pets");
+      const response = await fetch(`${URL_BASE}/pets`);
       return await response.json(); // fazer a conversão do formato json para o objeto JS
     } catch {
       alert("Erro ao buscar pets!");
@@ -14,7 +16,7 @@ const api = {
 
   async salvarPet(pet) {
     try {
-      const response = await fetch("http://localhost:5501/pets", {
+      const response = await fetch(`${URL_BASE}/pets`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -30,7 +32,7 @@ const api = {
 
   async buscarPetPorId(id) {
     try {
-      const response = await fetch(`http://localhost:5501/pets/${id}`);
+      const response = await fetch(`${URL_BASE}/pets/${id}`);
       return await response.json();
     } catch {
       alert("Erro ao buscar pet!");
@@ -40,7 +42,7 @@ const api = {
 
   async editarCadastroPet(pet) {
     try {
-      const response = await fetch(`http://localhost:5501/pets/${pet.id}`, {
+      const response = await fetch(`${URL_BASE}/pensamentos/${pensamento.id}`, {
         //ação que quero fazer nessa requisição, nesse caso é um PUT
         method: "PUT",
         //cabeçalhos da requisição
@@ -53,6 +55,17 @@ const api = {
       return await response.json(); // fazer a conversão do formato json para o objeto JS
     } catch {
       alert("Erro ao editar pet");
+      throw error;
+    }
+  },
+
+  async excluirPet(id) {
+    try {
+      const response = await fetch(`${URL_BASE}/pensamentos/${id}`, {
+        method: "DELETE",
+      });
+    } catch {
+      alert("Erro ao excluir o pensamento");
       throw error;
     }
   },
