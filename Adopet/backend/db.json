@@ -71,6 +71,12 @@
       "nome": "Krypto",
       "raca": "O Super Cão",
       "especie": "Canina"
+    },
+    {
+      "nome": "Luiza",
+      "raca": "Chow Chow",
+      "especie": "Canina",
+      "id": "GtLJIFgJHN4"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
