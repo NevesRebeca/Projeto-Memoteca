@@ -69,8 +69,3 @@ Adopet: http://127.0.0.1:5501
 
 Abra o projeto no Visual Studio Code e utilize a extensão **Live Server** para executar o arquivo `index.html`.
 
-## 🎓 Créditos
-
-Este repositório foi desenvolvido por mim como parte dos estudos realizados durante o curso **JavaScript: implementando CRUD com requisições HTTP**, da **Alura**.
-
-Os projetos foram utilizados para praticar e consolidar os conceitos apresentados ao longo das aulas, servindo também como material de consulta para futuras implementações utilizando **Fetch API** e **Axios**.
